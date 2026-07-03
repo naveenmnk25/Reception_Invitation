@@ -21,6 +21,7 @@ body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
   background: var(--ivory);
+  overflow-x: hidden;
 }
 
 .hero-section {
@@ -239,33 +240,127 @@ body {
   margin-bottom: 18px;
 }
 
+@media (max-width: 991.98px) {
+  .hero-section {
+    min-height: 92svh;
+  }
+
+  .venue-section {
+    text-align: center;
+  }
+
+  .venue-address br {
+    display: none;
+  }
+}
+
 @media (max-width: 575.98px) {
   .hero-section {
-    min-height: 92vh;
-    padding: 56px 0 42px;
+    min-height: 100svh;
+    padding: 42px 0 34px;
+    background-position: center top;
   }
 
   .hero-section::before {
-    inset: 12px;
+    inset: 8px;
   }
 
   .hero-section::after {
-    inset: 22px;
+    inset: 15px;
+  }
+
+  .ganesha-mark {
+    width: 108px;
+    padding: 7px;
+  }
+
+  .section-kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+    margin-bottom: 10px;
   }
 
   .couple-title {
-    font-size: clamp(3.65rem, 20vw, 5.4rem);
+    max-width: 340px;
+    font-size: clamp(3.7rem, 17vw, 4.9rem);
+    line-height: 1.02;
+    overflow-wrap: anywhere;
+  }
+
+  .couple-title span {
+    display: block;
+    margin: 5px 0;
+    font-size: 0.36em;
+    transform: none;
+  }
+
+  .hero-date {
+    margin: 18px 0 24px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero-actions {
+    width: min(100%, 300px);
+    margin: 0 auto;
+  }
+
+  .btn {
+    width: 100%;
+    min-width: 0;
+    padding: 0.82rem 1rem;
+    font-size: 0.95rem;
   }
 
   .details-section,
   .venue-section,
   .closing-section {
-    padding: 62px 0;
+    padding: 48px 0;
+  }
+
+  .detail-card {
+    padding: 28px 22px;
+    text-align: center;
+  }
+
+  .detail-card h2,
+  .venue-section h2,
+  .closing-section h2 {
+    font-size: clamp(3.05rem, 16vw, 4.25rem);
+    line-height: 1.03;
+  }
+
+  .parent-line,
+  .venue-address,
+  .closing-copy {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .venue-section h3 {
+    font-size: 1.32rem;
+    line-height: 1.35;
+    margin-bottom: 16px;
   }
 
   .map-frame,
   .map-frame iframe {
-    min-height: 330px;
-    height: 330px;
+    min-height: 280px;
+    height: 280px;
+  }
+
+  .map-frame {
+    border-width: 6px;
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 380px) {
+  .couple-title {
+    font-size: 3.45rem;
+  }
+
+  .ganesha-mark {
+    width: 96px;
   }
 }
