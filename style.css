@@ -106,10 +106,37 @@ body {
 }
 
 .hero-date {
-  margin: 24px 0 34px;
+  margin: 24px 0 16px;
   font-family: "Cinzel", serif;
   font-size: clamp(1.15rem, 2.3vw, 1.65rem);
   color: #fff8df;
+}
+
+.event-time {
+  width: fit-content;
+  margin-bottom: 34px;
+  padding: 12px 24px;
+  border: 1px solid rgba(255, 244, 215, 0.48);
+  border-radius: 999px;
+  background: rgba(50, 18, 36, 0.36);
+  color: #fff8df;
+  backdrop-filter: blur(10px);
+}
+
+.event-time span {
+  display: inline-block;
+  margin-right: 10px;
+  color: var(--gold);
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.event-time strong {
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .btn {
@@ -133,6 +160,7 @@ body {
 }
 
 .details-section,
+.photo-section,
 .venue-section,
 .closing-section {
   padding: 88px 0;
@@ -166,12 +194,104 @@ body {
 }
 
 .detail-card h2,
+.section-title,
 .venue-section h2,
 .closing-section h2 {
   font-family: "Great Vibes", cursive;
   font-size: clamp(3.2rem, 7vw, 5.8rem);
   line-height: 1;
   margin: 0 0 14px;
+  color: var(--maroon);
+}
+
+.photo-section {
+  background:
+    linear-gradient(rgba(50, 18, 36, 0.91), rgba(50, 18, 36, 0.91)),
+    url("https://images.unsplash.com/photo-1610173827002-62c0f1f05d04?auto=format&fit=crop&w=1800&q=80") center/cover;
+  color: #fff;
+}
+
+.photo-section .section-title {
+  color: #fff4d7;
+}
+
+.photo-card {
+  height: 100%;
+  padding: 18px 18px 24px;
+  border-radius: 8px;
+  background: rgba(255, 250, 240, 0.96);
+  border: 1px solid rgba(255, 244, 215, 0.5);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  text-align: center;
+}
+
+.photo-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 430px;
+  aspect-ratio: 4 / 5;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  background:
+    linear-gradient(rgba(118, 29, 50, 0.38), rgba(50, 18, 36, 0.5)),
+    repeating-linear-gradient(135deg, rgba(215, 166, 75, 0.18) 0 1px, transparent 1px 18px),
+    #f6e7c7;
+}
+
+.photo-placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(255, 244, 215, 0.56);
+}
+
+.photo-placeholder img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.photo-placeholder span {
+  position: relative;
+  z-index: 1;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: rgba(50, 18, 36, 0.7);
+  color: #fff4d7;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.photo-placeholder.has-photo span {
+  display: none;
+}
+
+.bride-photo {
+  background:
+    linear-gradient(rgba(118, 29, 50, 0.38), rgba(50, 18, 36, 0.5)),
+    url("bride-photo.jpg") center/cover,
+    repeating-linear-gradient(135deg, rgba(215, 166, 75, 0.18) 0 1px, transparent 1px 18px),
+    #f6e7c7;
+}
+
+.groom-photo {
+  background:
+    linear-gradient(rgba(50, 18, 36, 0.42), rgba(118, 29, 50, 0.44)),
+    url("groom-photo.jpg") center/cover,
+    repeating-linear-gradient(135deg, rgba(215, 166, 75, 0.18) 0 1px, transparent 1px 18px),
+    #f6e7c7;
+}
+
+.photo-card h3 {
+  margin: 20px 0 0;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.6rem, 5vw, 4rem);
   color: var(--maroon);
 }
 
@@ -197,6 +317,18 @@ body {
 
 .venue-address {
   margin-bottom: 28px;
+}
+
+.venue-time {
+  width: fit-content;
+  margin: 0 0 18px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #fff3cf;
+  color: var(--maroon);
+  font-family: "Cinzel", serif;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .map-frame {
@@ -249,6 +381,11 @@ body {
     text-align: center;
   }
 
+  .venue-time {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .venue-address br {
     display: none;
   }
@@ -282,7 +419,8 @@ body {
 
   .couple-title {
     max-width: 340px;
-    font-size: clamp(3.7rem, 17vw, 4.9rem);
+    /* font-size: clamp(3.7rem, 17vw, 4.9rem); */
+     font-size: clamp(3.7rem, 15vw, 2.9rem);
     line-height: 1.02;
     overflow-wrap: anywhere;
   }
@@ -295,9 +433,25 @@ body {
   }
 
   .hero-date {
-    margin: 18px 0 24px;
+    margin: 18px 0 14px;
     font-size: 1rem;
     line-height: 1.5;
+  }
+
+  .event-time {
+    display: grid;
+    gap: 3px;
+    margin-bottom: 24px;
+    padding: 10px 18px;
+  }
+
+  .event-time span {
+    margin-right: 0;
+    font-size: 0.68rem;
+  }
+
+  .event-time strong {
+    font-size: 0.95rem;
   }
 
   .hero-actions {
@@ -313,6 +467,7 @@ body {
   }
 
   .details-section,
+  .photo-section,
   .venue-section,
   .closing-section {
     padding: 48px 0;
@@ -324,6 +479,7 @@ body {
   }
 
   .detail-card h2,
+  .section-title,
   .venue-section h2,
   .closing-section h2 {
     font-size: clamp(3.05rem, 16vw, 4.25rem);
@@ -341,6 +497,28 @@ body {
     font-size: 1.32rem;
     line-height: 1.35;
     margin-bottom: 16px;
+  }
+
+  .photo-card {
+    padding: 12px 12px 18px;
+  }
+
+  .photo-placeholder {
+    min-height: 310px;
+  }
+
+  .photo-placeholder::before {
+    inset: 12px;
+  }
+
+  .photo-placeholder span {
+    padding: 10px 16px;
+    font-size: 0.72rem;
+  }
+
+  .venue-time {
+    font-size: 0.82rem;
+    line-height: 1.45;
   }
 
   .map-frame,
